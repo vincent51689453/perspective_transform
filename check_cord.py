@@ -1,6 +1,6 @@
 import cv2
 
-image_path = 'samples/input/road2.jpeg'
+image_path = 'samples/input/road3.jpg'
 
 
 def pixel_picker(event,x,y,flag,param):

@@ -2,7 +2,7 @@ import cv2
 import transform
 import numpy as np
 
-image_path = 'samples/input/road2.jpeg'
+image_path = 'samples/input/road3.jpg'
 
 # Results using camer calibration
 camera_matrix = np.array([[2043.94561663, 0.00000000,   03.97714629]
@@ -16,10 +16,10 @@ print("Distortion Coef:",distortion_matrix)
 
 def points_init():
     # You can use check_cord.py to find your desired ROI
-    top_left = (285,268)
-    top_right = (702,265)
-    bottom_right = (947,534)
-    bottom_left = (14,522)
+    top_left = (260,140)
+    top_right = (410,140)
+    bottom_right = (560,480)
+    bottom_left = (110,480)
 
     points = []
     points.append(top_left)
@@ -56,8 +56,5 @@ cv2.imshow("Transform Result",image_undist)
 image_vis = draw_anchors(image_bk,anchors)
 cv2.imshow("anchors",image_vis)
 cv2.imwrite('samples/output/road2_output.jpg',image)
-
-
-
 
 cv2.waitKey(0)
