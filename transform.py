@@ -50,3 +50,17 @@ def bird_view_transform_4pts(image,pts):
     result = cv2.warpPerspective(image, M, (maxW, maxH))
 
     return result
+
+def distortion_remove(image,camera_matrix,distor_matrix):
+    h,w = image.shape[:2]
+
+    newcameramtx, roi = cv2.getOptimalNewCameraMatrix(camera_matrix, distor_matrix, (w, h), 1, (w, h))
+    dst = cv2.undistort(image, camera_matrix, distor_matrix, None, newcameramtx)
+
+    # crop and save the image
+    x, y, w, h = roi
+    dst = dst[y:y+h, x:x+w]
+
+    print("Distortion remove")
+
+    return dst
