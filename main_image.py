@@ -16,10 +16,10 @@ print("Distortion Coef:",distortion_matrix)
 
 def points_init():
     # You can use check_cord.py to find your desired ROI
-    top_left = (436,333)
-    top_right = (538,333)
-    bottom_right = (884,529)
-    bottom_left = (155,529)
+    top_left = (285,268)
+    top_right = (702,265)
+    bottom_right = (947,534)
+    bottom_left = (14,522)
 
     points = []
     points.append(top_left)
