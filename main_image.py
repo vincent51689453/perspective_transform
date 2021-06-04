@@ -55,6 +55,7 @@ cv2.imshow("Transform Result",image_undist)
 # Anchor visualization
 image_vis = draw_anchors(image_bk,anchors)
 cv2.imshow("anchors",image_vis)
-cv2.imwrite('samples/output/road2_output.jpg',image)
+cv2.imwrite('samples/output/road2_anchor_output.jpg',image)
+cv2.imwrite('samples/output/road2_bird_output.jpg',image_undist)
 
 cv2.waitKey(0)
