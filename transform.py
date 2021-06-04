@@ -19,6 +19,12 @@ def bird_view_transform_4pts(image,pts):
     bottom_right = pts[2]
     bottom_left = pts[3]
 
+    rect = np.zeros((4, 2), dtype = "float32")
+    rect[0] = top_left
+    rect[1] = top_right
+    rect[2] = bottom_right
+    rect[3] = bottom_left
+
     # Find width betweeen bottom right/left and top right/left
     widthA = np.sqrt((top_left[0]-top_right[0])**2+(top_left[1]-top_right[1])**2)
     widthB = np.sqrt((bottom_left[0]-bottom_right[0])**2+(bottom_left[1]-bottom_right[1])**2)
@@ -34,9 +40,9 @@ def bird_view_transform_4pts(image,pts):
     # Destination points after transformation
     dst = np.array([
 	            	[0, 0],
-		            [maxWidth - 1, 0],
-		            [maxWidth - 1, maxHeight - 1],
-		            [0, maxHeight - 1]], dtype = "float32")
+		            [maxW - 1, 0],
+		            [maxW - 1, maxH - 1],
+		            [0, maxH - 1]], dtype = "float32")
 
     
 	# compute the perspective transform matrix and then apply it
